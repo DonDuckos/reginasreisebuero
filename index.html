@@ -247,6 +247,46 @@
       margin-top: 3rem;
     }
     
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .modal-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 90%;
+      max-height: 90%;
+      animation: slideIn 0.3s ease;
+    }
+    
+    .modal-content img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes slideIn {
+      from { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+      to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    }
+    
   </style>
 </head>
 <body>
@@ -293,5 +333,38 @@
   <footer>
     © 2025 Reginas Individualreisen · Seelenzeit beginnt hier.
   </footer>
+  
+  <!-- Modal -->
+  <div id="quizModal" class="modal">
+    <div class="modal-content">
+      <img src="modaleQuizFenster.png" alt="Quiz Fenster">
+    </div>
+  </div>
+  
+  <script>
+    // Modal Funktionalität
+    const modal = document.getElementById('quizModal');
+    const quizButton = document.querySelector('.cta button');
+    
+    // Modal öffnen
+    quizButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      modal.style.display = 'block';
+    });
+    
+    // Modal schließen bei Klick außerhalb des Bildes
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+    
+    // Modal schließen mit Escape-Taste
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.style.display === 'block') {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
