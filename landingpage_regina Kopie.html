@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reginas Seelenzeit-Landingpage</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fffaf5;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      padding: 4rem 2rem;
+      text-align: center;
+      color: white;
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/5;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    
+    header video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center bottom;
+      z-index: -1;
+    }
+    
+    header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.9));
+      z-index: 0;
+    }
+    
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+      animation: pulse 4s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.7; }
+    }
+    
+    header h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(45deg, #fff, #f0f8ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: glow 3s ease-in-out infinite alternate;
+      position: relative;
+      z-index: 1;
+    }
+    
+    @keyframes glow {
+      from { text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 255, 255, 0.5); }
+      to { text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3), 0 0 50px rgba(255, 255, 255, 0.8); }
+    }
+    
+    header p {
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 3rem;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      position: relative;
+      z-index: 1;
+    }
+    
+    header .cta {
+      margin-top: 2rem;
+      background: linear-gradient(45deg, #fff, #f8f9fa);
+      color: #333;
+      padding: 1.5rem 3rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.4s ease;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transform: translateY(0);
+    }
+    
+    header .cta:hover {
+      background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+    
+    header .cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 50px;
+      background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    header .cta:hover::before {
+      opacity: 1;
+    }
+    .section {
+      padding: 6rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      margin-top: -50px;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    }
+    .cta {
+      background: #61462c;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+    .cta h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+    .cta button {
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      background-color: #c6943b;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .section {
+      padding: 3rem 2rem;
+      max-width: 960px;
+      margin: auto;
+    }
+    .section h3 {
+      color: #61462c;
+      margin-bottom: 1rem;
+    }
+    .section p {
+      line-height: 1.6;
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .feature {
+      flex: 1 1 280px;
+      background: #f7f2eb;
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .maskottchen {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .maskottchen img {
+      width: 100px;
+    }
+    footer {
+      background: #f7f2eb;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <video autoplay muted loop id="headerVideo">
+      <source src="peacefulLake.mp4" type="video/mp4">
+    </video>
+    <h1>Finde deinen Seelenzeit-Typ</h1>
+    <p>Mach das Quiz und erhalte 3 magische Orte für deine erste Micro-Reise – kostenlos per Mail!</p>
+    <a href="#cta" class="cta">Jetzt kostenlos starten</a>
+  </header>
+
+  <section id="cta" class="cta">
+    <h2>Dein Reisetyp + Mini-Guide – sofort zum Download</h2>
+    <p>Beantworte 5 Fragen, entdecke deinen Reisetyp und erhalte passende Micro-Reise-Tipps für achtsame Alleinzeit.</p>
+    <button>Jetzt Quiz starten & Guide erhalten</button>
+  </section>
+
+  <section class="section">
+    <h3>Warum Regina?</h3>
+    <div class="features">
+      <div class="feature">
+        <h4>Micro-Reisen mit Tiefe</h4>
+        <p>Handverlesene Orte, achtsame Impulse, echte Seelenzeit. Ganz in deiner Nähe.</p>
+      </div>
+      <div class="feature">
+        <h4>Dein Einstieg in bewusstes Reisen</h4>
+        <p>Erlebe, was dir wirklich gut tut – bevor du groß buchst. Regina begleitet dich persönlich.</p>
+      </div>
+      <div class="feature">
+        <h4>Allein. Und doch verbunden.</h4>
+        <p>Für Alleinlebende mit Sinn für Qualität, Ruhe und Inspiration. Optional mit kleinen Gruppen.</p>
+      </div>
+    </div>
+    <div class="maskottchen">
+      <img src="ReginaLogoSchrift.png" alt="Maskottchen">
+      <p><em>„Deine Seelenreise beginnt ganz in der Nähe.“</em></p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Reginas Individualreisen · Seelenzeit beginnt hier.
+  </footer>
+</body>
+</html>
